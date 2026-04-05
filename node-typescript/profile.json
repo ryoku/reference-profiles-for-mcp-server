@@ -1,0 +1,21 @@
+{
+  "id": "node-typescript",
+  "templatePaths": [
+    "templates/domain-service.hbs"
+  ],
+  "expectedDirectories": [
+    "src/domain/model",
+    "src/domain/port/in",
+    "src/domain/port/out",
+    "src/domain/service",
+    "src/application/usecase",
+    "src/adapter/in/http",
+    "src/adapter/out/persistence",
+    "src/config"
+  ],
+  "namingRules": [
+    { "directory": "src/domain/model", "pattern": "*.ts" },
+    { "directory": "src/domain/port/in", "pattern": "*.ts" },
+    { "directory": "src/adapter/out/persistence", "pattern": "*Repository.ts" }
+  ]
+}

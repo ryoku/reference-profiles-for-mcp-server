@@ -1,0 +1,17 @@
+import type { {{pascalName}}Port, {{pascalName}}Command, {{pascalName}}Result } from '../../domain/port/in/{{pascalName}}Port.js';
+
+export class {{pascalName}}Service implements {{pascalName}}Port {
+  constructor(
+    // inject driven ports here, e.g.:
+    // private readonly {{camelName}}Repository: {{pascalName}}Repository
+  ) {}
+
+  async execute(command: {{pascalName}}Command): Promise<{{pascalName}}Result> {
+    // 1. Validate domain invariants
+    // 2. Load aggregate(s) via driven ports
+    // 3. Call aggregate method(s)
+    // 4. Persist via driven ports
+    // 5. Return result
+    throw new Error('Not implemented');
+  }
+}
