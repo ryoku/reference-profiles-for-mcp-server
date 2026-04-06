@@ -230,9 +230,14 @@ export class PlaceOrderUseCase implements PlaceOrderPort {
 
   async execute(command: PlaceOrderCommand): Promise<PlaceOrderResult> {
     const uow = this.uowFactory(); // isolated transaction context per call
-    // ...
-    await uow.commit();
-    return result;
+    try {
+      // ...
+      await uow.commit();
+      return result;
+    } catch (error) {
+      await uow.rollback();
+      throw error;
+    }
   }
 }
 ```
