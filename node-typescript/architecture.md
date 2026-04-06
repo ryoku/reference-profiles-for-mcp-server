@@ -294,3 +294,4 @@ Use these Handlebars templates to scaffold conforming code. Each template target
 | `use-case-port.hbs` | Driving port (use-case interface) | Starting a new use case — scaffolds the port interface, Command type, and Result type together |
 | `use-case.hbs` | Use-case implementation (Unit of Work) | Use case that spans multiple repositories — uses the UoW factory pattern for transaction management |
 | `use-case-tx.hbs` | Use-case implementation (TransactionPort) | Use case that touches a single repository — simpler alternative to the UoW pattern |
+| `repository-port.hbs` | Driven port (repository interface) | Defining a new repository contract — add domain-specific methods, no generic CRUD |
