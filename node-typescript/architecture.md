@@ -281,3 +281,13 @@ Never log sensitive data (PII, payment details, credentials) at any layer.
 | HTTP client | `undici` |
 
 Any dependency outside this list requires explicit approval before addition.
+
+---
+
+## Templates
+
+Use these Handlebars templates to scaffold conforming code. Each template targets a specific architectural concept and follows the patterns described in this guide.
+
+| Template | Concept | When to use |
+|---|---|---|
+| `domain-service.hbs` | Pure domain service | Shared business logic used by multiple use cases — no I/O, no framework dependencies |

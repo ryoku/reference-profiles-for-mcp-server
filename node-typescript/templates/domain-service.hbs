@@ -1,17 +1,10 @@
-import type { {{pascalName}}Port, {{pascalName}}Command, {{pascalName}}Result } from '../../domain/port/in/{{pascalName}}Port.js';
-
-export class {{pascalName}}Service implements {{pascalName}}Port {
-  constructor(
-    // inject driven ports here, e.g.:
-    // private readonly {{camelName}}Repository: {{pascalName}}Repository
-  ) {}
-
-  async execute(command: {{pascalName}}Command): Promise<{{pascalName}}Result> {
-    // 1. Validate domain invariants
-    // 2. Load aggregate(s) via driven ports
-    // 3. Call aggregate method(s)
-    // 4. Persist via driven ports
-    // 5. Return result
+// Pure domain service: shared business logic used by multiple use cases.
+// Zero dependencies on frameworks, infrastructure, or application code.
+// All methods must be pure functions — no I/O, no logging, no side effects.
+export class {{pascalName}}Service {
+  // Replace with domain-specific method signatures.
+  // Example: calculate(input: {{pascalName}}Input): {{pascalName}}Output
+  {{camelName}}(/* typed domain inputs */): /* typed domain output */ {
     throw new Error('Not implemented');
   }
 }
