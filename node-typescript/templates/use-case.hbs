@@ -1,0 +1,22 @@
+// src/application/usecase/{{pascalName}}UseCase.ts
+import type { {{pascalName}}Port, {{pascalName}}Command, {{pascalName}}Result } from '../../domain/port/in/{{pascalName}}Port.js';
+import type { UnitOfWorkPort } from '../../domain/port/out/UnitOfWorkPort.js';
+
+export class {{pascalName}}UseCase implements {{pascalName}}Port {
+  constructor(private readonly uowFactory: () => UnitOfWorkPort) {}
+
+  async execute(command: {{pascalName}}Command): Promise<{{pascalName}}Result> {
+    const uow = this.uowFactory();
+    try {
+      // Use uow.entityRepository to load and persist aggregates.
+      // Rename entityRepository to match your domain (e.g. orderRepository).
+      // Add further repositories to UnitOfWorkPort as needed.
+      const result: {{pascalName}}Result = {} as {{pascalName}}Result;
+      await uow.commit();
+      return result;
+    } catch (error) {
+      await uow.rollback();
+      throw error;
+    }
+  }
+}
