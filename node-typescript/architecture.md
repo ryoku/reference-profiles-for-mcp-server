@@ -129,7 +129,7 @@ export interface PlaceOrderPort {
 
 Transaction management belongs to the application layer, never to the domain or the HTTP adapter.
 
-**Preferred: Unit of Work port** — define a `UnitOfWorkPort` in `domain/port/out/`. It exposes the repositories involved in the transaction and a `commit()` method. The use case receives it via constructor injection; the adapter in `persistence/` provides the implementation. Use this approach whenever multiple repositories participate in the same transaction.
+**Preferred: Unit of Work port** — define a `UnitOfWorkPort` in `domain/port/out/`. It exposes the repositories involved in the transaction and a `commit()` method. Because a `UnitOfWork` holds per-transaction state it **must be created fresh for each call** — inject a factory function rather than a shared instance; the adapter in `persistence/` provides the factory. Use this approach whenever multiple repositories participate in the same transaction.
 
 ```typescript
 // src/domain/port/out/UnitOfWorkPort.ts
@@ -142,17 +142,18 @@ export interface UnitOfWorkPort {
 
 // src/application/usecase/PlaceOrderUseCase.ts
 export class PlaceOrderUseCase implements PlaceOrderPort {
-  constructor(private readonly uow: UnitOfWorkPort) {}
+  constructor(private readonly uowFactory: () => UnitOfWorkPort) {}
 
   async execute(command: PlaceOrderCommand): Promise<PlaceOrderResult> {
+    const uow = this.uowFactory(); // isolated transaction context per call
     try {
       const result: PlaceOrderResult =
         // ... domain logic using uow.orderRepository, uow.stockRepository ...
         {} as PlaceOrderResult;
-      await this.uow.commit();
+      await uow.commit();
       return result;
     } catch (error) {
-      await this.uow.rollback();
+      await uow.rollback();
       throw error;
     }
   }
