@@ -5,12 +5,12 @@ import type { {{pascalName}}RepositoryPort } from '../../domain/port/out/{{pasca
 
 export class {{pascalName}}UseCase implements {{pascalName}}Port {
   constructor(
-    private readonly transaction: TransactionPort,
+    private readonly transactionPort: TransactionPort,
     private readonly {{camelName}}Repository: {{pascalName}}RepositoryPort,
   ) {}
 
   async execute(_command: {{pascalName}}Command): Promise<{{pascalName}}Result> {
-    return this.transaction.run(async () => {
+    return this.transactionPort.run(async () => {
       // Use this.{{camelName}}Repository to load and persist aggregates.
       // Replace with actual result construction before returning.
       throw new Error('Not implemented');
