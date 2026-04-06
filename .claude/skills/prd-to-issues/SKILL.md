@@ -13,7 +13,7 @@ Break a PRD into independently-grabbable GitHub issues using vertical slices (tr
 
 Ask the user for the PRD GitHub issue number (or URL).
 
-If the PRD is not already in your context window, fetch it with `gh issue view <number>  --comments`.
+If the PRD is not already in your context window, fetch it with `gh issue view <number> --comments`.
 
 ### 2. Explore the repo (optional)
 
@@ -60,7 +60,7 @@ GitHub issues must be written in English, always.
 <issue-template>
 ## Parent PRD
 
-`#<prd-issue-number>
+`#<prd-issue-number>`
 
 ## What to build
 
