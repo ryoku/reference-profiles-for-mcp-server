@@ -5,7 +5,7 @@ import type { UnitOfWorkPort } from '../../domain/port/out/UnitOfWorkPort.js';
 export class {{pascalName}}UseCase implements {{pascalName}}Port {
   constructor(private readonly uowFactory: () => UnitOfWorkPort) {}
 
-  async execute(command: {{pascalName}}Command): Promise<{{pascalName}}Result> {
+  async execute(_command: {{pascalName}}Command): Promise<{{pascalName}}Result> {
     const uow = this.uowFactory();
     try {
       // Use uow.entityRepository to load and persist aggregates.
