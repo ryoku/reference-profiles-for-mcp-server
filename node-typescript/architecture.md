@@ -291,3 +291,4 @@ Use these Handlebars templates to scaffold conforming code. Each template target
 | Template | Concept | When to use |
 |---|---|---|
 | `domain-service.hbs` | Pure domain service | Shared business logic used by multiple use cases — no I/O, no framework dependencies |
+| `use-case-port.hbs` | Driving port (use-case interface) | Starting a new use case — scaffolds the port interface, Command type, and Result type together |

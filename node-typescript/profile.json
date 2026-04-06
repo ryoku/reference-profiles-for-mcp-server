@@ -1,7 +1,8 @@
 {
   "id": "node-typescript",
   "templatePaths": [
-    "templates/domain-service.hbs"
+    "templates/domain-service.hbs",
+    "templates/use-case-port.hbs"
   ],
   "expectedDirectories": [
     "src/domain/model",
@@ -15,7 +16,7 @@
   ],
   "namingRules": [
     { "directory": "src/domain/model", "pattern": "*.ts" },
-    { "directory": "src/domain/port/in", "pattern": "*.ts" },
+    { "directory": "src/domain/port/in", "pattern": "*Port.ts" },
     { "directory": "src/adapter/out/persistence", "pattern": "*Repository.ts" }
   ]
 }
