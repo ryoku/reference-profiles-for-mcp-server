@@ -11,9 +11,9 @@ export class {{pascalName}}UseCase implements {{pascalName}}Port {
       // Use uow.entityRepository to load and persist aggregates.
       // Rename entityRepository to match your domain (e.g. orderRepository).
       // Add further repositories to UnitOfWorkPort as needed.
-      const result: {{pascalName}}Result = {} as {{pascalName}}Result;
       await uow.commit();
-      return result;
+      // Replace with actual result construction before committing.
+      throw new Error('Not implemented');
     } catch (error) {
       await uow.rollback();
       throw error;
