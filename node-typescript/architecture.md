@@ -134,8 +134,8 @@ Transaction management belongs to the application layer, never to the domain or 
 ```typescript
 // src/domain/port/out/UnitOfWorkPort.ts
 export interface UnitOfWorkPort {
-  readonly orderRepository: OrderRepository;
-  readonly stockRepository: StockRepository;
+  readonly orderRepository: OrderRepositoryPort;
+  readonly stockRepository: StockRepositoryPort;
   commit(): Promise<void>;
   rollback(): Promise<void>;
 }

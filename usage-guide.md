@@ -19,8 +19,8 @@ The stack sentinel `<!-- mcp-stack: node-typescript -->` triggers automatic dete
 
 ## Key conventions
 
-- Business logic lives exclusively in `domain/`; no framework imports allowed there.
-- Application services in `application/` orchestrate domain logic and call outbound ports.
-- Adapters in `adapters/` implement inbound (HTTP, CLI) and outbound (DB, external APIs) ports.
+- Business logic lives exclusively in `src/domain/`; no framework imports allowed there.
+- Application services in `src/application/` orchestrate domain logic and call outbound ports.
+- Adapters in `src/adapters/` implement inbound (HTTP, CLI) and outbound (DB, external APIs) ports.
 - All cross-layer communication goes through explicitly typed port interfaces.
 - New dependencies require explicit approval before introduction (see supervision rules).
