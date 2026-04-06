@@ -5,7 +5,7 @@ This profile anchors coding agents to the hexagonal architecture conventions def
 ## When to activate this profile
 
 Load this profile at the start of any session in a Node.js / TypeScript backend service that follows the hexagonal (ports and adapters) pattern.
-The stack sentinel in `CLAUDE.md` (`<!-- mcp-stack: node-typescript -->`) triggers automatic detection.
+The stack sentinel `<!-- mcp-stack: node-typescript -->` triggers automatic detection. This sentinel should be placed in the `CLAUDE.md` file of **the project that consumes this MCP server**.
 
 ## Routing instructions for agents
 
