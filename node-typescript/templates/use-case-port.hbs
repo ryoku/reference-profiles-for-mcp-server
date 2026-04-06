@@ -1,0 +1,12 @@
+// src/domain/port/in/{{pascalName}}Port.ts
+export type {{pascalName}}Command = {
+  // define command fields here
+};
+
+export type {{pascalName}}Result = {
+  // define result fields here
+};
+
+export interface {{pascalName}}Port {
+  execute(command: {{pascalName}}Command): Promise<{{pascalName}}Result>;
+}
