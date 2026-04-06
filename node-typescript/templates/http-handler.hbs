@@ -1,0 +1,31 @@
+// src/adapter/in/http/{{pascalName}}Handler.ts
+import type { FastifyInstance } from 'fastify';
+import { z, ZodError } from 'zod';
+import type { {{pascalName}}Port } from '../../../domain/port/in/{{pascalName}}Port.js';
+import { toHttpStatus } from './errorMapper.js';
+import { DomainError } from '../../../domain/model/errors.js';
+
+const {{camelName}}Schema = z.object({
+  // define request body fields here
+});
+
+export function register{{pascalName}}Handler(
+  app: FastifyInstance,
+  {{camelName}}Port: {{pascalName}}Port,
+): void {
+  app.{{httpMethod}}('{{routePath}}', async (request, reply) => {
+    try {
+      const body = {{camelName}}Schema.parse(request.body);
+      const result = await {{camelName}}Port.execute(body);
+      return reply.status(200).send(result);
+    } catch (error) {
+      if (error instanceof ZodError) {
+        return reply.status(422).send({ message: 'Validation error', issues: error.issues });
+      }
+      if (error instanceof DomainError) {
+        return reply.status(toHttpStatus(error)).send({ message: error.message });
+      }
+      throw error;
+    }
+  });
+}
