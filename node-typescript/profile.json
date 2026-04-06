@@ -4,7 +4,8 @@
     "templates/domain-service.hbs",
     "templates/use-case-port.hbs",
     "templates/use-case.hbs",
-    "templates/use-case-tx.hbs"
+    "templates/use-case-tx.hbs",
+    "templates/repository-port.hbs"
   ],
   "expectedDirectories": [
     "src/domain/model",
