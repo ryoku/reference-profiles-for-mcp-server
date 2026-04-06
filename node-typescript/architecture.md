@@ -293,3 +293,4 @@ Use these Handlebars templates to scaffold conforming code. Each template target
 | `domain-service.hbs` | Pure domain service | Shared business logic used by multiple use cases — no I/O, no framework dependencies |
 | `use-case-port.hbs` | Driving port (use-case interface) | Starting a new use case — scaffolds the port interface, Command type, and Result type together |
 | `use-case.hbs` | Use-case implementation (Unit of Work) | Use case that spans multiple repositories — uses the UoW factory pattern for transaction management |
+| `use-case-tx.hbs` | Use-case implementation (TransactionPort) | Use case that touches a single repository — simpler alternative to the UoW pattern |

@@ -3,7 +3,8 @@
   "templatePaths": [
     "templates/domain-service.hbs",
     "templates/use-case-port.hbs",
-    "templates/use-case.hbs"
+    "templates/use-case.hbs",
+    "templates/use-case-tx.hbs"
   ],
   "expectedDirectories": [
     "src/domain/model",

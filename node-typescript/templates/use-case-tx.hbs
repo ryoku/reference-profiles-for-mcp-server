@@ -1,0 +1,19 @@
+// src/application/usecase/{{pascalName}}UseCase.ts
+import type { {{pascalName}}Port, {{pascalName}}Command, {{pascalName}}Result } from '../../domain/port/in/{{pascalName}}Port.js';
+import type { TransactionPort } from '../../domain/port/out/TransactionPort.js';
+import type { {{pascalName}}RepositoryPort } from '../../domain/port/out/{{pascalName}}RepositoryPort.js';
+
+export class {{pascalName}}UseCase implements {{pascalName}}Port {
+  constructor(
+    private readonly transaction: TransactionPort,
+    private readonly {{camelName}}Repository: {{pascalName}}RepositoryPort,
+  ) {}
+
+  async execute(_command: {{pascalName}}Command): Promise<{{pascalName}}Result> {
+    return this.transaction.run(async () => {
+      // Use this.{{camelName}}Repository to load and persist aggregates.
+      // Replace with actual result construction before returning.
+      throw new Error('Not implemented');
+    });
+  }
+}
